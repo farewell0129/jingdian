@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瓦屋山景点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* 四个并列板块 */
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        
+        .feature {
+            flex: 1;
+            margin: 0 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .feature-content {
+            padding: 15px;
+        }
+        .feature-content p{
+        	font-family: '楷体';
+        }
+        .feature-content h3 {
+            margin-bottom: 10px;
+            color: #2c5e8c;
+        }
+        
+        /* 长白山核心景点区域 */
+        .section-title {
+            margin: 40px 0 20px;
+            font-size: 28px;
+            color: #333333;
+            position: relative;
+        }
+        
+        .sub-nav {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .sub-nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #CCCCCC;
+            font-size: 16px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .long-image {
+            height: 650px;
+            background: url(img/微信图片_20260423094423_9086_15.jpg);
+            background-size: cover;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        .content-block {
+            display: flex;
+            margin-bottom: 50px;
+        }
+        
+        .content-img {
+            flex: 1;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+        }
+        
+        .content-text {
+            flex: 1;
+            padding: 20px;
+            border-radius: 5px;
+            margin-left: -5px;
+        }
+        
+        .content-text h3 {
+            margin-bottom: 15px;
+            color: #333333;
+            font-size: 15px;
+            margin-top: -40px;
+        }
+        
+        .content-text p {
+            line-height: 1.6;
+            color: #555;
+            font-size: 13px;
+        }
+        
+        /* 四个并列图片区域 */
+        .gallery {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        
+        .gallery-item {
+            flex: 1;
+            margin: 0 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-img {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+        /* 导航栏样式 */
+        header {
+            background-color: royalblue;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 34px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 70px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        /* 横幅样式 */
+        .banner {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .banner h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .banner p {
+            font-size: 20px;
+            max-width: 600px;
+        }
+        /* 底部样式 */
+        footer {
+            background-color: royalblue;
+            color: white;
+            padding: 20px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-content a{
+        	color: white;
+        	text-decoration: none;
+        	list-style-type: none;
+        }
+        .contact-info {
+            text-align: left;
+        }
+        
+        .contact-info p {
+            margin: 8px 0;
+        }
+        
+        .copyright {
+            text-align: right;
+        }
+        
+        .copyright p {
+            margin: 8px 0;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">瓦屋山</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a ></li>
+                    <li><a href="jingdian.html">景点介绍</a ></li>
+                    <li><a href="siji.html">四季风光</a ></li>
+                    <li><a href="gonglue.html">旅游攻略</a ></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 横幅 -->
+    <section class="banner">
+    	<img src="img/微信图片_20260423094355_9077_15.jpg" width="1400px" height="500px" style="margin-top: -100px; object-fit: cover;"/>
+    </section>
+
+    <!-- 四个并列板块 -->
+    <div class="container" style="margin-top: -90px;">
+        <div class="features">
+            <div class="feature">
+                <div class="feature-img" style="background-image: url(img/微信图片_20260423094410_9082_15.jpg);"></div>
+                <div class="feature-content">
+                    <p>桌山奇观‌：山顶平台面积约 11 平方公里，四周悬崖峭壁，视野开阔，可观赏‌云海‌、‌日出‌、‌佛光‌等天象 。</p >
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-img" style="background-image: url(img/微信图片_20260423094414_9083_15.jpg);"></div>
+                <div class="feature-content">
+                    <p>瀑布群‌：拥有 72 条瀑布，其中‌兰溪瀑布‌落差达 1040 米，冬季凝结为‌冰瀑‌，被誉为“西南一绝”。</p >
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-img" style="background-image: url(img/微信图片_20260423094416_9084_15.jpg);"></div>
+                <div class="feature-content">
+                    <p>‌雅女湖‌：位于山脚，水域面积 14 平方公里，是远眺瓦屋山全貌的最佳观景点 。</p >
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-img" style="background-image: url(img/微信图片_20260423094420_9085_15.jpg);"></div>
+                <div class="feature-content">
+                    <p>鸳鸯池‌：位于山顶中心，由众多泉眼汇聚而成，相传为老君弟子得名。</p >
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">瓦屋山兰溪峡谷核心景点</h2>
+        <div class="sub-nav">
+            <a href="index.html" class="active">首页</a >
+            <a href="jingdian.html">景点介绍</a >
+            <a href="siji.html">四季风光</a >
+            <a href="gonglue.html">旅游攻略</a >
+        </div>
+        
+        <div class="long-image"></div>
+        
+        <div class="content-block">
+            <img src="img/微信图片_20260423094424_9087_15.jpg" height="150px" style="margin-top: -20px;"/>
+            <div class="content-text">
+                <h3>瓦屋山兰溪峡谷核心景点</h3>
+                <p>兰溪绝壁栈道‌：这是整个峡谷最具代表性的景点，也是登山难度最高的游线‌
+。栈道呈“Z”字形紧贴近乎90度的玄武岩陡壁而建，海拔落差约310米‌
+。行走其上，一侧是壁立千仞的绝壁，另一侧是万丈深渊，惊险刺激‌
+。栈道全长约4.5公里，其中核心绝壁段约1.4公里，连接山顶的兰溪瀑布与中线的半山画廊，形成中高山区旅游大环线‌。</p ><br />
+                <p>兰溪瀑布‌：位于栈道顶端，是世界多级落差最大的瀑布之一，总落差达1040米，分为两级从绝壁高处奔涌而下，气势磅礴‌
+。行走在绝壁栈道上，可以从多个角度近距离感受飞瀑从头顶倾泻而下的震撼景象。‌</p >
+            </div>
+        </div>
+    </div>
+
+    <!-- 长白山四季之美区域 -->
+    <div class="container">
+        <h2 class="section-title">瓦屋山四季之美</h2>
+        <div class="sub-nav">
+            <a href="index.html" class="active">首页</a >
+            <a href="jingdian.html">景点介绍</a >
+            <a href="siji.html">四季风光</a >
+            <a href="gonglue.html">旅游攻略</a >
+        </div>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <div class="gallery-img" style="background-image: url(img/微信图片_20260423094428_9088_15.jpg);"></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img" style="background-image: url(img/微信图片_20260423094431_9089_15.jpg);"></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img" style="background-image: url(img/微信图片_20260423094441_9090_15.jpg);"></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img" style="background-image: url(img/微信图片_20260423094446_9091_15.jpg);"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <footer style="margin-top: 100px;">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <p style="margin-left: 120px;">瓦屋山风光</p >
+                    <p style="margin-left: 30px; margin-top: 10px;"><a href="index.html">首页</a >&ensp;
+                    <a href="jingdian.html">景点介绍</a >&ensp;
+                    <a href="siji.html">四季风光</a >&ensp;
+                    <a href="gonglue.html">旅游攻略</a ></p >
+                </div>
+                <div class="copyright">
+                    <p>瓦屋山风光</p >
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
